@@ -1,0 +1,3 @@
+2025-07-09 22:03:30,216 [INFO] Starting per-document analysis pipeline (ayurlekha.processor)
+2025-07-09 22:03:31,090 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?select=%2A "HTTP/2 200 OK"
+2025-07-09 22:03:31,091 [INFO] Completed per-document analysis pipeline (ayurlekha.processor)

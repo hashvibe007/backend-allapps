@@ -1,0 +1,5 @@
+dspy
+supabase
+pytest
+python-dotenv
+ddgs
