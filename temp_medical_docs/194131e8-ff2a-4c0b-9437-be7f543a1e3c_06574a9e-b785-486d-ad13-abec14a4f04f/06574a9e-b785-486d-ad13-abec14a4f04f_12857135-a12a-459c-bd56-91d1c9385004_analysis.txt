@@ -1,0 +1,19 @@
+The document is a Radiology Report for a USG Whole Abdomen scan performed on Mr. Avinash Kumar (Patient ID: MM02240101) on 01-06-2022. The patient's status is noted as "Status post LDLT (donor)".
+
+The findings section details the ultrasound observations:
+-   Residual liver measures 13.5 cm with normal parenchymal echopattern. No intrahepatic biliary duct dilatation. Portal vein is normal.
+-   Gall bladder is not seen, consistent with post-operative history.
+-   Pancreas: Head and body appear normal. Tail is obscured by bowel gases.
+-   Spleen is normal in size (10.4 cm) and shows normal echotexture.
+-   Both kidneys are normal in size and echogenicity. Corticomedullary differentiation is well maintained. No evidence of calculus or hydronephrosis. Right kidney measures 10.3x5.0 cm, Left kidney measures 10.0x5.1 cm.
+-   Retroperitoneum is obscured by bowel gases.
+-   Urinary bladder is partially distended.
+-   Prostate appears grossly normal.
+-   No free fluid is seen in the abdomen.
+
+The impression states: "No significant abnormality seen."
+
+The report is signed by Dr. Nidhi Sota, Sr. Consultant, Radiology, and transcribed by D.B. It was authorized by Dr Nidhi Sota on 01 Jun 2022 at 13:07, having been ordered at 12:15 on the same day. A note indicates it is a system-generated document and signature is not required.
+
+Confidence Score: 5/5 - The document is clear, well-structured, and all relevant information is easily identifiable.
+Uncertainties: None.

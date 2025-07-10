@@ -1,0 +1,11 @@
+The document is a laboratory report from the Department of Laboratory Medicine - Hematology. It includes the following details:
+- Specimen No: 2022203911
+- Specimen Type: Blood (EDTA)
+- Authorized: 01 Jun 2022 11:36
+- Released: 01 Jun 2022 11:07
+- Ordered: 01 Jun 2022 09:38
+- Collected: 01 Jun 2022 09:52
+- Received: 01 Jun 2022 10:34
+- Registered: 01 Jun 2022 10:35
+
+The document also contains notes about the clinical correlation of test results and the storage and discard policy of biological specimens.

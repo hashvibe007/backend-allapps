@@ -1,0 +1,229 @@
+--- Analysis for med-doc-6.jpeg ---
+The detailed analysis of the medical document includes the following information:
+- Name: Mr. Avinash Kumar
+- Gender: M
+- Date of Birth: 16 Aug 1979 (42 years)
+- Date of Report: 01 Jun 2022
+- Test Name: Complete Blood Count (CBC)
+- Hemoglobin: 9.1 gm/dL (Low)
+- WBC: 290 (Normal)
+- RBC: 3.63 (Low)
+- Hematocrit: 30.6 (Low)
+- MCHC: 29.7 (Low)
+- MCV: 84.3 (Low)
+- RDW: 20.20 (High)
+
+--- Analysis for med-doc-14.jpeg ---
+The detailed analysis of the medical document includes the following:
+- **Patient Information**: Name: Mr. Avinash Kumar, Gender: M, Date of Birth: 16 Aug 1979 (42 years), Date of Report: 01 Mar 2022.
+- **Test Results**:
+  - **LDL - Cholesterol**: Result: 124 mg/dL, Reference Range: 0-150 mg/dL, Category: Near to above optimal 100-129 mg/dL.
+  - **HDL - Cholesterol**: Result: 44 mg/dL, Reference Range: 40-60 mg/dL, Category: Normal.
+  - **Triglycerides**: Result: 164 mg/dL, Reference Range: 0-150 mg/dL, Category: High.
+  - **VLDL - Cholesterol**: Result: 43 mg/dL, Reference Range: 0-28 mg/dL, Category: High.
+  - **Total Cholesterol**: Result: 211 mg/dL, Reference Range: 150-240 mg/dL, Category: High.
+- **Cholesterol/HDLC Ratio**: Result: 4.7, Reference Range: 0-4, Category: High.
+
+--- Analysis for med-doc-8.jpeg ---
+The detailed analysis of the medical document includes the patient's name, gender, date of birth, and the date of the report. The document lists various liver function tests such as Bilirubin Total, Bilirubin Direct, Bilirubin Indirect, Delta Bilirubin, Total Protein, Albumin, and others. Each test has a reference range and the patient's value is provided. The report also includes the method used for each test.
+
+--- Analysis for med-doc-7.jpeg ---
+The radiology report for Mr. Avinash Kumar, a 42-year-old male, details the results of an ultrasound whole abdomen scan conducted on 01-06-2022. The report includes findings such as the size and appearance of the liver, kidneys, spleen, and other abdominal organs. The report notes that there is no significant abnormality seen in the abdomen.
+
+--- Analysis for med-doc-13.jpeg ---
+The radiology report is for a patient named Mr. Avinash Kumar, male, 42 years old, with a UHID of MM02240101 and a DOB of 16 Aug 1979. The scan was done on 28 Feb 2022. The patient is a prospective liver donor. The report includes findings from the CT scan of the upper abdomen, which shows normal liver size, smooth margins, and uniform attenuation. The gallbladder is partially distended but shows homogeneous endoluminal contents. No significant bilateral pleural/pericardial effusion is noted. The pancreas appears normal. The liver attenuation index is +11. The report concludes that the NCCT upper abdomen findings in a prospective liver donor reveal LAI values of +11, with no significant enlarged lymph nodes or free fluid seen in the upper abdomen.
+
+--- Analysis for med-doc-2-1.jpeg ---
+The document is a medical record for Mr. Avinash Kumar, 42 years old, who underwent a Donor R Hepatectomy on 9/5/2022. The patient is doing well, with vital signs of BP 116/80 mmHg, PR 98, and SpO2 97%. The note mentions a review with case/LFTs after 3 days and a USG Abdomen noted. The handwriting is clear, and the information is legible.
+
+--- Analysis for med-doc-3-1.jpeg ---
+The document is a medical prescription for a patient named Mr. Avinash Kumar, aged 42 years. The patient underwent a Donor R Hepatectomy on 9/5/2022. The medical advice includes removing alternate staffs and resting after 2 days. The patient's weight is 69.2 kg, blood pressure is 112/74 mmHg, pulse rate is 116 bpm, and oxygen saturation is 98.1%. The prescription includes the following medicines: 1. Pentox 40 mg OD BNF X 7 days, 2. Uridil 300 mg BD.
+--- Medicine Verifications ---
+Pentox 40 mg OD BNF X 7 days: verified
+Uridil 300 mg BD: verified
+
+
+--- Analysis for med-doc-10.jpeg ---
+The document is a liver transplant donor evaluation form. It includes the following details:
+- Name: Mr. Avinash
+- Age: 22
+- Sex: Male
+- BMI: 40101
+- Donor of (Recipient): Not specified
+- Blood group: Not specified
+- Contact numbers for healthcare providers are listed, including Dr. Saurabh, Dr. Vipul, Dr. Narendra S Chaudhary, Dr. Sabhyata Gupta, Dr. Rajeev Agarwal, Dr. Priyanka Batra, Dr. Neeraj Saraf, Dr. Kanchan Kaur, Dr. Swapnil, Dr. Sabhyata Gupta, Dr. Rajeev Agarwal, Dr. Kanchan Kaur, Dr. Swapnil, Dr. Manish Bansal, Dr. Vijay Vohra, and Dr. Nikunj Gupta.
+
+--- Analysis for med-doc-11.jpeg ---
+The document is a radiology report from Medanta, specifically an MRI Liver Fat Estimation report. It contains demographic details such as the patient's name, gender, date of birth, and age. The report was ordered on 14 Mar 2022 and authorized by Dr. Sonal Krishan on 15 Mar 2022. The findings indicate that the percentage fat fraction in the liver is 3% with a range of 1% to 6%. There is no focal area more than 10% fat fraction, and there is no difference in the right and left lobe of the liver. The report notes that MRI liver fat fraction is a different methodology to cell count fraction on histopathology.
+
+--- Analysis for med-doc-12.jpeg ---
+The document is an outpatient summary from Medanta-The Medicity, Gurgaon. It contains patient demographic details, visit information, and a note section. The document does not contain any specific medical entities or medicines.
+
+--- Analysis for med-doc-9.jpeg ---
+The detailed analysis of the medical document includes the following information:
+- Name: Mr. Avinash Kumar
+- Age: 42 years
+- Gender: Male
+- Date: 27/04/22
+- Diagnosis/Indication: Live Donor
+- Stress Modality: Exercise
+- METs achieved: 12.5
+- Heart rate at rest: 93 bpm, at peak: 166 bpm
+- Blood pressure at rest: 110/80 mmHg, at peak: 150/80 mmHg
+- Chest pain during the test: No
+- Dobutamine HR achieved: 93% of MPHHR
+- Atropine used: Not used
+- LVEF at rest: 55%, at peak: 55%
+- Salient echo findings and final impression: STEC is negative for RNI
+
+--- Analysis for med-doc-4-1.jpeg ---
+The document is a medical follow-up note from Medanta, dated 1/6/22. The patient's name is Avinash Kumar, and the medical record number is MD2240101. The patient is 42 years old and male. The note mentions that the patient is a donor and had a hepatectomy on 9/5/2022. The patient is advised to remove remaining staples, and there are instructions for taking Pantocel 40mg PRF x 5 days, Uroliv 300mg BD, and Emoin 200mg AO for 7 days. The patient's vital signs are also recorded, including weight, blood pressure, pulse rate, and oxygen saturation.
+--- Medicine Verifications ---
+Pantocel 40mg PRF x 5 days: verified
+Uroliv 300mg BD: verified
+Emoin 200mg AO: verified
+
+
+--- Analysis for med-doc-5-1.jpeg ---
+The document is a medical consultation note from Apollo Hospitals, Internal Medicine department. The patient's name is Mr. Avinash Kumar, age 44, male. The consultation date is 11-04-2024. The patient's weight is 80 kg, height is not mentioned, and the pulse rate is 111/74. The patient has a history of H1O (Hemoglobin) donation a year ago. The clinical diagnosis and management plan include a prescription for Tab. Euthyrox 50mcg (CBF) and a recommendation for lifestyle modification to manage dyslipidemia (prediabetes). The patient is advised to continue with the medication and follow up in two months.
+--- Medicine Verifications ---
+Tab. Euthyrox 50mcg (CBF): verified
+
+
+--- Analysis for med-doc-1-1.jpeg ---
+The document is a medical prescription or medication list. It includes the following details:
+- Patient Name: Mr. Avinash Kumar
+- Age: 42Y
+- Sex: Male
+- Medications:
+  - Tab Nexpro RD
+  - Tab Matilda Forte
+  - Tab Livalocortin
+--- Medicine Verifications ---
+Tab Nexpro RD: verified
+Tab Matilda Forte: verified
+Tab Livalocortin: verified
+
+
+--- Analysis for med-doc-6.jpeg ---
+The detailed analysis of the medical document includes the following information:
+- Name: Mr. Avinash Kumar
+- Gender: M
+- Date of Birth: 16 Aug 1979 (42 years)
+- Date of Report: 01 Jun 2022
+- Test Name: Complete Blood Count (CBC)
+- Hemoglobin: 9.1 gm/dL (Low)
+- WBC: 290 (Normal)
+- RBC: 3.63 (Low)
+- Hematocrit: 30.6 (Low)
+- MCHC: 29.7 (Low)
+- MCV: 84.3 (Low)
+- RDW: 20.20 (High)
+
+--- Analysis for med-doc-6.jpeg ---
+The detailed analysis of the medical document includes the following information:
+- Name: Mr. Avinash Kumar
+- Gender: M
+- Date of Birth: 16 Aug 1979 (42 years)
+- Date of Report: 01 Jun 2022
+- Test Name: Complete Blood Count (CBC)
+- Hemoglobin: 9.1 gm/dL (Low)
+- WBC: 290 (Normal)
+- RBC: 3.63 (Low)
+- Hematocrit: 30.6 (Low)
+- MCHC: 29.7 (Low)
+- MCV: 84.3 (Low)
+- RDW: 20.20 (High)
+
+--- Analysis for med-doc-14.jpeg ---
+The detailed analysis of the medical document includes the following:
+- **Patient Information**: Name: Mr. Avinash Kumar, Gender: M, Date of Birth: 16 Aug 1979 (42 years), Date of Report: 01 Mar 2022.
+- **Test Results**:
+  - **LDL - Cholesterol**: Result: 124 mg/dL, Reference Range: 0-150 mg/dL, Category: Near to above optimal 100-129 mg/dL.
+  - **HDL - Cholesterol**: Result: 44 mg/dL, Reference Range: 40-60 mg/dL, Category: Normal.
+  - **Triglycerides**: Result: 164 mg/dL, Reference Range: 0-150 mg/dL, Category: High.
+  - **VLDL - Cholesterol**: Result: 43 mg/dL, Reference Range: 0-28 mg/dL, Category: High.
+  - **Total Cholesterol**: Result: 211 mg/dL, Reference Range: 150-240 mg/dL, Category: High.
+- **Cholesterol/HDLC Ratio**: Result: 4.7, Reference Range: 0-4, Category: High.
+
+--- Analysis for med-doc-8.jpeg ---
+The detailed analysis of the medical document includes the patient's name, gender, date of birth, and the date of the report. The document lists various liver function tests such as Bilirubin Total, Bilirubin Direct, Bilirubin Indirect, Delta Bilirubin, Total Protein, Albumin, and others. Each test has a reference range and the patient's value is provided. The report also includes the method used for each test.
+
+--- Analysis for med-doc-7.jpeg ---
+The radiology report for Mr. Avinash Kumar, a 42-year-old male, details the results of an ultrasound whole abdomen scan conducted on 01-06-2022. The report includes findings such as the size and appearance of the liver, kidneys, spleen, and other abdominal organs. The report notes that there is no significant abnormality seen in the abdomen.
+
+--- Analysis for med-doc-13.jpeg ---
+The radiology report is for a patient named Mr. Avinash Kumar, male, 42 years old, with a UHID of MM02240101 and a DOB of 16 Aug 1979. The scan was done on 28 Feb 2022. The patient is a prospective liver donor. The report includes findings from the CT scan of the upper abdomen, which shows normal liver size, smooth margins, and uniform attenuation. The gallbladder is partially distended but shows homogeneous endoluminal contents. No significant bilateral pleural/pericardial effusion is noted. The pancreas appears normal. The liver attenuation index is +11. The report concludes that the NCCT upper abdomen findings in a prospective liver donor reveal LAI values of +11, with no significant enlarged lymph nodes or free fluid seen in the upper abdomen.
+
+--- Analysis for med-doc-2-1.jpeg ---
+The document is a medical record for Mr. Avinash Kumar, 42 years old, who underwent a Donor R Hepatectomy on 9/5/2022. The patient is doing well, with vital signs of BP 116/80 mmHg, PR 98, and SpO2 97%. The note mentions a review with case/LFTs after 3 days and a USG Abdomen noted. The handwriting is clear, and the information is legible.
+
+--- Analysis for med-doc-3-1.jpeg ---
+The document is a medical prescription for a patient named Mr. Avinash Kumar, aged 42 years. The patient underwent a Donor R Hepatectomy on 9/5/2022. The medical advice includes removing alternate staffs and resting after 2 days. The patient's weight is 69.2 kg, blood pressure is 112/74 mmHg, pulse rate is 116 bpm, and oxygen saturation is 98.1%. The prescription includes the following medicines: 1. Pentox 40 mg OD BNF X 7 days, 2. Uridil 300 mg BD.
+--- Medicine Verifications ---
+Pentox 40 mg OD BNF X 7 days: verified
+Uridil 300 mg BD: verified
+
+
+--- Analysis for med-doc-10.jpeg ---
+The document is a liver transplant donor evaluation form. It includes the following details:
+- Name: Mr. Avinash
+- Age: 22
+- Sex: Male
+- BMI: 40101
+- Donor of (Recipient): Not specified
+- Blood group: Not specified
+- Contact numbers for healthcare providers are listed, including Dr. Saurabh, Dr. Vipul, Dr. Narendra S Chaudhary, Dr. Sabhyata Gupta, Dr. Rajeev Agarwal, Dr. Priyanka Batra, Dr. Neeraj Saraf, Dr. Kanchan Kaur, Dr. Swapnil, Dr. Sabhyata Gupta, Dr. Rajeev Agarwal, Dr. Kanchan Kaur, Dr. Swapnil, Dr. Manish Bansal, Dr. Vijay Vohra, and Dr. Nikunj Gupta.
+
+--- Analysis for med-doc-11.jpeg ---
+The document is a radiology report from Medanta, specifically an MRI Liver Fat Estimation report. It contains demographic details such as the patient's name, gender, date of birth, and age. The report was ordered on 14 Mar 2022 and authorized by Dr. Sonal Krishan on 15 Mar 2022. The findings indicate that the percentage fat fraction in the liver is 3% with a range of 1% to 6%. There is no focal area more than 10% fat fraction, and there is no difference in the right and left lobe of the liver. The report notes that MRI liver fat fraction is a different methodology to cell count fraction on histopathology.
+
+--- Analysis for med-doc-12.jpeg ---
+The document is an outpatient summary from Medanta-The Medicity, Gurgaon. It contains patient demographic details, visit information, and a note section. The document does not contain any specific medical entities or medicines.
+
+--- Analysis for med-doc-9.jpeg ---
+The detailed analysis of the medical document includes the following information:
+- Name: Mr. Avinash Kumar
+- Age: 42 years
+- Gender: Male
+- Date: 27/04/22
+- Diagnosis/Indication: Live Donor
+- Stress Modality: Exercise
+- METs achieved: 12.5
+- Heart rate at rest: 93 bpm, at peak: 166 bpm
+- Blood pressure at rest: 110/80 mmHg, at peak: 150/80 mmHg
+- Chest pain during the test: No
+- Dobutamine HR achieved: 93% of MPHHR
+- Atropine used: Not used
+- LVEF at rest: 55%, at peak: 55%
+- Salient echo findings and final impression: STEC is negative for RNI
+
+--- Analysis for med-doc-4-1.jpeg ---
+The document is a medical follow-up note from Medanta, dated 1/6/22. The patient's name is Avinash Kumar, and the medical record number is MD2240101. The patient is 42 years old and male. The note mentions that the patient is a donor and had a hepatectomy on 9/5/2022. The patient is advised to remove remaining staples, and there are instructions for taking Pantocel 40mg PRF x 5 days, Uroliv 300mg BD, and Emoin 200mg AO for 7 days. The patient's vital signs are also recorded, including weight, blood pressure, pulse rate, and oxygen saturation.
+--- Medicine Verifications ---
+Pantocel 40mg PRF x 5 days: verified
+Uroliv 300mg BD: verified
+Emoin 200mg AO: verified
+
+
+--- Analysis for med-doc-5-1.jpeg ---
+The document is a medical consultation note from Apollo Hospitals, Internal Medicine department. The patient's name is Mr. Avinash Kumar, age 44, male. The consultation date is 11-04-2024. The patient's weight is 80 kg, height is not mentioned, and the pulse rate is 111/74. The patient has a history of H1O (Hemoglobin) donation a year ago. The clinical diagnosis and management plan include a prescription for Tab. Euthyrox 50mcg (CBF) and a recommendation for lifestyle modification to manage dyslipidemia (prediabetes). The patient is advised to continue with the medication and follow up in two months.
+--- Medicine Verifications ---
+Tab. Euthyrox 50mcg (CBF): verified
+
+
+--- Analysis for med-doc-1-1.jpeg ---
+The document is a medical prescription or medication list. It includes the following details:
+- Patient Name: Mr. Avinash Kumar
+- Age: 42Y
+- Sex: Male
+- Medications:
+  - Tab Nexpro RD
+  - Tab Matilda Forte
+  - Tab Livalocortin
+--- Medicine Verifications ---
+Tab Nexpro RD: verified
+Tab Matilda Forte: verified
+Tab Livalocortin: verified
+
+

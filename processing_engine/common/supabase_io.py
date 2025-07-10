@@ -23,7 +23,7 @@ def download_file_from_supabase(bucket: str, remote_path: str, local_path: str):
 def upload_file_to_supabase(bucket: str, remote_path: str, local_path: str):
     """Upload a file to Supabase Storage."""
     with open(local_path, "rb") as f:
-        supabase.storage.from_(bucket).upload(remote_path, f, upsert=True)
+        supabase.storage.from_(bucket).upload(remote_path, f)
 
 
 def update_job_status(table: str, job_id: str, status: str):

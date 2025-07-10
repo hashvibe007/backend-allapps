@@ -1,0 +1,7 @@
+The detailed analysis of the medical document includes the following tests and their respective results:
+- Blood Urea: 24 mg/dL (Reference Range: 19-43 mg/dL)
+- Potassium: 4.3 mmol/L (Reference Range: 3.5-5.1 mmol/L)
+- Sodium: 139 mmol/L (Reference Range: 137-145 mmol/L)
+- Magnesium: 2.1 mg/dL (Reference Range: 1.6-2.3 mg/dL)
+- Phosphorus: 3.9 mg/dL (Reference Range: 2.5-4.5 mg/dL)
+- Calcium: 8.4 mg/dL (Reference Range: 8.4-10.2 mg/dL)

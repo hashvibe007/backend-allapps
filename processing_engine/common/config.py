@@ -8,6 +8,7 @@ def load_config():
     config = {
         "SUPABASE_URL": os.getenv("SUPABASE_URL"),
         "SUPABASE_ANON_KEY": os.getenv("SUPABASE_ANON_KEY"),
+        "SUPABASE_SERVICE_ROLE": os.getenv("SUPABASE_SERVICE_ROLE"),
         "GEMINI_API_KEY": os.getenv("GEMINI_API_KEY"),
         # Add more as needed
     }

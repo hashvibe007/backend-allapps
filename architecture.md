@@ -3,26 +3,26 @@
 ```mermaid
 graph TD
     subgraph User
-        U1(User logs in via Web App)
-        U2(User selects use case & uploads data)
+        U1[User logs in via Web App]
+        U2[User selects use case - uploads data]
     end
 
-    subgraph Frontend (Web App)
-        FE1(Collects user input: text, image, audio, etc.)
-        FE2(Uploads input to Supabase Storage & DB)
+    subgraph FE [Frontend Web App]
+        FE1[Collects user input: text, image, audio, etc.]
+        FE2[Uploads input to Supabase Storage & DB]
     end
 
-    subgraph Supabase
-        SB1(Storage: Raw Inputs)
-        SB2(Database: Metadata, Job Status)
-        SB3(Storage: Processed Outputs)
+    subgraph DB [Supabase]
+        SB1[Storage: Raw Inputs]
+        SB2[Database: Metadata, Job Status]
+        SB3[Storage: Processed Outputs]
     end
 
-    subgraph Processing Engine (SkyPilot)
+    subgraph PE [Processing Engine: SkyPilot]
         direction TB
-        PE1[SkyPilot YAML (per use case)]
+        PE1[SkyPilot YAML per use case]
         PE2[SkyPilot launches GPU VM]
-        PE3[Processing Script (modular)]
+        PE3[Processing Script modular]
         PE4[Common Module: Connect/Read/Save]
         PE5[Use Case Logic: Process & Generate Output]
     end

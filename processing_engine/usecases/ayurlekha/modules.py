@@ -2,6 +2,7 @@ import dspy
 from typing import List, Dict, Any
 from processing_engine.common.web_tools import web_verify_medicine
 from .signatures import DocumentProcessorSignature
+from .signatures import PatientDemographicsSignature
 
 
 class MedicineFactChecker(dspy.Module):
@@ -65,4 +66,19 @@ class DocumentProcessor(dspy.Module):
             detailed_analysis=prediction.detailed_analysis,
             medicine_verifications=medicine_verifications,
             extracted_medicines=prediction.extracted_medicines,
+        )
+
+
+class PatientDemographics(dspy.Module):
+    def __init__(self):
+        super().__init__()
+        self.predictor = dspy.ChainOfThought(PatientDemographicsSignature)
+
+    def forward(self, medical_history):
+        prediction = self.predictor(medical_history=medical_history)
+        return dspy.Prediction(
+            patient_name=prediction.patient_name,
+            age=prediction.age,
+            gender=prediction.gender,
+            illness_details=prediction.illness_details,
         )

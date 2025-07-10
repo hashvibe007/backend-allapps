@@ -1,3 +1,653 @@
-2025-07-09 22:03:30,216 [INFO] Starting per-document analysis pipeline (ayurlekha.processor)
-2025-07-09 22:03:31,090 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?select=%2A "HTTP/2 200 OK"
-2025-07-09 22:03:31,091 [INFO] Completed per-document analysis pipeline (ayurlekha.processor)
+2025-07-10 21:10:57,606 [INFO] [startup] Using SUPABASE_SERVICE_ROLE for Supabase client (bypasses RLS)
+2025-07-10 21:10:57,619 [INFO] Starting Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 21:10:57,619 [INFO] [pipeline] Fetching all patients from DB...
+2025-07-10 21:10:58,129 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?select=%2A "HTTP/2 200 OK"
+2025-07-10 21:10:58,130 [INFO] [pipeline] Found 1 patients.
+2025-07-10 21:10:58,130 [INFO] [patient] Processing patient_id=06574a9e-b785-486d-ad13-abec14a4f04f, user_id=194131e8-ff2a-4c0b-9437-be7f543a1e3c
+2025-07-10 21:10:58,130 [INFO] [patient] Fetching unprocessed medical_records for patient_id=06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 21:10:58,254 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?select=%2A&patient_id=eq.06574a9e-b785-486d-ad13-abec14a4f04f&processed=eq.False "HTTP/2 200 OK"
+2025-07-10 21:10:58,254 [INFO] [patient] Found 6 unprocessed records for patient_id=06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 21:10:58,254 [INFO] [record] Processing record_id=624961f5-d3f7-4743-8071-4e73fc4adfda file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752132339093-duwu09y859.jpg
+2025-07-10 21:10:58,254 [INFO] [path] Extracted bucket='medical-documents', remote_path='medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752132339093-duwu09y859.jpg' from file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752132339093-duwu09y859.jpg
+2025-07-10 21:10:58,254 [INFO] [download] Downloading bucket='medical-documents' path='medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752132339093-duwu09y859.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_624961f5-d3f7-4743-8071-4e73fc4adfda_1752132339093-duwu09y859.jpg
+2025-07-10 21:10:58,926 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752132339093-duwu09y859.jpg "HTTP/2 400 Bad Request"
+2025-07-10 21:10:58,926 [ERROR] [download] Failed to download bucket='medical-documents' path='medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752132339093-duwu09y859.jpg': {'statusCode': 404, 'error': not_found, 'message': Object not found}
+2025-07-10 21:10:58,926 [INFO] [record] Processing record_id=711d0e80-b3ef-4a0b-ad36-32c7fa73599f file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752153315203-b57s9gzv2zr.jpg
+2025-07-10 21:10:58,926 [INFO] [path] Extracted bucket='medical-documents', remote_path='medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752153315203-b57s9gzv2zr.jpg' from file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752153315203-b57s9gzv2zr.jpg
+2025-07-10 21:10:58,926 [INFO] [download] Downloading bucket='medical-documents' path='medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752153315203-b57s9gzv2zr.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_711d0e80-b3ef-4a0b-ad36-32c7fa73599f_1752153315203-b57s9gzv2zr.jpg
+2025-07-10 21:10:59,451 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752153315203-b57s9gzv2zr.jpg "HTTP/2 200 OK"
+2025-07-10 21:10:59,556 [INFO] [download] Downloaded bucket='medical-documents' path='medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752153315203-b57s9gzv2zr.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_711d0e80-b3ef-4a0b-ad36-32c7fa73599f_1752153315203-b57s9gzv2zr.jpg
+2025-07-10 21:10:59,556 [INFO] [record] Processing record_id=efe58fa5-3e8a-4836-9139-570aa1e037f0 file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752154304891-s83nki6395f.jpg
+2025-07-10 21:10:59,556 [INFO] [path] Extracted bucket='medical-documents', remote_path='medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752154304891-s83nki6395f.jpg' from file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752154304891-s83nki6395f.jpg
+2025-07-10 21:10:59,556 [INFO] [download] Downloading bucket='medical-documents' path='medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752154304891-s83nki6395f.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_efe58fa5-3e8a-4836-9139-570aa1e037f0_1752154304891-s83nki6395f.jpg
+2025-07-10 21:11:00,117 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752154304891-s83nki6395f.jpg "HTTP/2 200 OK"
+2025-07-10 21:11:00,284 [INFO] [download] Downloaded bucket='medical-documents' path='medical-records/06574a9e-b785-486d-ad13-abec14a4f04f/1752154304891-s83nki6395f.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_efe58fa5-3e8a-4836-9139-570aa1e037f0_1752154304891-s83nki6395f.jpg
+2025-07-10 21:11:00,284 [INFO] [record] Processing record_id=12857135-a12a-459c-bd56-91d1c9385004 file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg
+2025-07-10 21:11:00,284 [INFO] [path] Extracted bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg' from file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg
+2025-07-10 21:11:00,284 [INFO] [download] Downloading bucket='medical-documents' path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_12857135-a12a-459c-bd56-91d1c9385004_1752156335652-l78p2a8j8s.jpg
+2025-07-10 21:11:00,810 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg "HTTP/2 200 OK"
+2025-07-10 21:11:00,875 [INFO] [download] Downloaded bucket='medical-documents' path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_12857135-a12a-459c-bd56-91d1c9385004_1752156335652-l78p2a8j8s.jpg
+2025-07-10 21:11:00,875 [INFO] [record] Processing record_id=33f4d6c5-f49c-48a7-b272-99dc8fb688af file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg
+2025-07-10 21:11:00,875 [INFO] [path] Extracted bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg' from file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg
+2025-07-10 21:11:00,875 [INFO] [download] Downloading bucket='medical-documents' path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_33f4d6c5-f49c-48a7-b272-99dc8fb688af_1752156395710-8a6yzbrrim3.jpg
+2025-07-10 21:11:01,562 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg "HTTP/2 200 OK"
+2025-07-10 21:11:01,615 [INFO] [download] Downloaded bucket='medical-documents' path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_33f4d6c5-f49c-48a7-b272-99dc8fb688af_1752156395710-8a6yzbrrim3.jpg
+2025-07-10 21:11:01,615 [INFO] [record] Processing record_id=31478816-1a92-446c-a96d-d220c46d8f7a file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg
+2025-07-10 21:11:01,615 [INFO] [path] Extracted bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg' from file_url=https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg
+2025-07-10 21:11:01,615 [INFO] [download] Downloading bucket='medical-documents' path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_31478816-1a92-446c-a96d-d220c46d8f7a_1752158018352-9hq3r2tfvsp.jpg
+2025-07-10 21:11:02,211 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg "HTTP/2 200 OK"
+2025-07-10 21:11:02,268 [INFO] [download] Downloaded bucket='medical-documents' path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg' to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_31478816-1a92-446c-a96d-d220c46d8f7a_1752158018352-9hq3r2tfvsp.jpg
+2025-07-10 21:11:02,273 [INFO] [analysis] Processing image temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_711d0e80-b3ef-4a0b-ad36-32c7fa73599f_1752153315203-b57s9gzv2zr.jpg for record_id=711d0e80-b3ef-4a0b-ad36-32c7fa73599f
+2025-07-10 21:11:02,370 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:17:26,817 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:17:26,842 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:17:26,866 [INFO] [analysis] Saved analysis for temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_711d0e80-b3ef-4a0b-ad36-32c7fa73599f_1752153315203-b57s9gzv2zr.jpg to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_711d0e80-b3ef-4a0b-ad36-32c7fa73599f_analysis.txt
+2025-07-10 21:17:26,866 [INFO] [analysis] Processing image temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_efe58fa5-3e8a-4836-9139-570aa1e037f0_1752154304891-s83nki6395f.jpg for record_id=efe58fa5-3e8a-4836-9139-570aa1e037f0
+2025-07-10 21:17:27,210 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:23:47,700 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:23:47,713 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:23:47,742 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:25:26,280 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:25:26,296 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:25:26,591 [INFO] response: https://www.bing.com/search?q=Inj+Enerix+B+2ml%2FIM+Stat+drug+medication+pharmaceutical 200
+2025-07-10 21:25:27,177 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:27:11,355 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:27:11,369 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:27:11,773 [INFO] response: https://www.bing.com/search?q=Inj+Enerix+B+2ml%2FIM+Stat+drug+medication+pharmaceutical 200
+2025-07-10 21:27:11,796 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:30:19,048 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:30:19,060 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:30:21,116 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:32:06,697 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:32:06,711 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:32:07,142 [INFO] response: https://www.bing.com/search?q=Medicine+from+Pharmacy+and+administration+at+Room+no%3A+8%2C+14th+Floor+drug+medication+pharmaceutical 200
+2025-07-10 21:32:07,173 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:33:52,620 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:33:52,634 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:33:53,369 [INFO] response: https://www.bing.com/search?q=Medicine+from+Pharmacy+and+administration+at+Room+no%3A+8%2C+14th+Floor+drug+medication+pharmaceutical 200
+2025-07-10 21:33:54,403 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:36:43,434 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:36:43,449 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:36:43,464 [INFO] [analysis] Saved analysis for temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_efe58fa5-3e8a-4836-9139-570aa1e037f0_1752154304891-s83nki6395f.jpg to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_efe58fa5-3e8a-4836-9139-570aa1e037f0_analysis.txt
+2025-07-10 21:36:43,464 [INFO] [analysis] Processing image temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_12857135-a12a-459c-bd56-91d1c9385004_1752156335652-l78p2a8j8s.jpg for record_id=12857135-a12a-459c-bd56-91d1c9385004
+2025-07-10 21:36:43,692 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:42:13,405 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:42:13,418 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:42:13,437 [INFO] [analysis] Saved analysis for temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_12857135-a12a-459c-bd56-91d1c9385004_1752156335652-l78p2a8j8s.jpg to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_12857135-a12a-459c-bd56-91d1c9385004_analysis.txt
+2025-07-10 21:42:13,437 [INFO] [analysis] Processing image temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_33f4d6c5-f49c-48a7-b272-99dc8fb688af_1752156395710-8a6yzbrrim3.jpg for record_id=33f4d6c5-f49c-48a7-b272-99dc8fb688af
+2025-07-10 21:42:13,660 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:50:47,550 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 500 Internal Server Error"
+2025-07-10 21:50:47,554 [INFO] Retrying request to /chat/completions in 0.423899 seconds
+2025-07-10 21:51:45,071 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:51:45,080 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:51:45,100 [INFO] [analysis] Saved analysis for temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_33f4d6c5-f49c-48a7-b272-99dc8fb688af_1752156395710-8a6yzbrrim3.jpg to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_33f4d6c5-f49c-48a7-b272-99dc8fb688af_analysis.txt
+2025-07-10 21:51:45,100 [INFO] [analysis] Processing image temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_31478816-1a92-446c-a96d-d220c46d8f7a_1752158018352-9hq3r2tfvsp.jpg for record_id=31478816-1a92-446c-a96d-d220c46d8f7a
+2025-07-10 21:51:45,310 [INFO] 
+LiteLLM completion() model= ; provider = openai
+2025-07-10 21:55:10,169 [INFO] HTTP Request: POST http://127.0.0.1:8081/v1/chat/completions "HTTP/1.1 200 OK"
+2025-07-10 21:55:10,180 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 21:55:10,194 [INFO] [analysis] Saved analysis for temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_31478816-1a92-446c-a96d-d220c46d8f7a_1752158018352-9hq3r2tfvsp.jpg to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_31478816-1a92-446c-a96d-d220c46d8f7a_analysis.txt
+2025-07-10 21:55:10,195 [INFO] [aggregate] Aggregating analyses for patient 06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 21:55:10,195 [INFO] [aggregate] Found 5 analysis files for patient 06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 21:55:10,195 [INFO] [aggregate] Including analysis file: temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_12857135-a12a-459c-bd56-91d1c9385004_analysis.txt
+2025-07-10 21:55:10,195 [INFO] [aggregate] Including analysis file: temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_31478816-1a92-446c-a96d-d220c46d8f7a_analysis.txt
+2025-07-10 21:55:10,195 [INFO] [aggregate] Including analysis file: temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_33f4d6c5-f49c-48a7-b272-99dc8fb688af_analysis.txt
+2025-07-10 21:55:10,195 [INFO] [aggregate] Including analysis file: temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_711d0e80-b3ef-4a0b-ad36-32c7fa73599f_analysis.txt
+2025-07-10 21:55:10,195 [INFO] [aggregate] Including analysis file: temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_efe58fa5-3e8a-4836-9139-570aa1e037f0_analysis.txt
+2025-07-10 21:55:10,195 [INFO] [summary] Saved summary markdown to temp_medical_docs/06574a9e-b785-486d-ad13-abec14a4f04f_Ayurlekha_20250710T162510.md
+2025-07-10 21:55:10,195 [ERROR] [summary] Failed to upload summary or update DB for patient 06574a9e-b785-486d-ad13-abec14a4f04f: SyncBucketActionsMixin.upload() got an unexpected keyword argument 'upsert'
+2025-07-10 21:55:10,195 [INFO] Completed Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 22:48:03,520 [INFO] Starting Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 22:48:03,520 [INFO] [startup] Using SUPABASE_SERVICE_ROLE for Supabase client
+2025-07-10 22:48:04,138 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?select=%2A "HTTP/2 200 OK"
+2025-07-10 22:48:04,140 [INFO] [db] Found 1 patients in DB
+2025-07-10 22:48:04,140 [INFO] [patient] Processing patient 06574a9e-b785-486d-ad13-abec14a4f04f (user 194131e8-ff2a-4c0b-9437-be7f543a1e3c)
+2025-07-10 22:48:04,379 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?select=%2A&patient_id=eq.06574a9e-b785-486d-ad13-abec14a4f04f&processed=eq.False "HTTP/2 200 OK"
+2025-07-10 22:48:04,380 [INFO] [db] Found 3 unprocessed records for patient 06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 22:48:04,380 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg' for record 12857135-a12a-459c-bd56-91d1c9385004
+2025-07-10 22:48:04,984 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg "HTTP/2 200 OK"
+2025-07-10 22:48:05,101 [INFO] [download] Downloaded https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg to temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg
+2025-07-10 22:48:05,107 [ERROR] [error] Failed to process record 12857135-a12a-459c-bd56-91d1c9385004: 'DocumentProcessor' object has no attribute 'process'
+2025-07-10 22:48:05,107 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg' for record 33f4d6c5-f49c-48a7-b272-99dc8fb688af
+2025-07-10 22:48:05,451 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg "HTTP/2 200 OK"
+2025-07-10 22:48:05,511 [INFO] [download] Downloaded https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg to temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg
+2025-07-10 22:48:05,517 [ERROR] [error] Failed to process record 33f4d6c5-f49c-48a7-b272-99dc8fb688af: 'DocumentProcessor' object has no attribute 'process'
+2025-07-10 22:48:05,517 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg' for record 31478816-1a92-446c-a96d-d220c46d8f7a
+2025-07-10 22:48:05,913 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg "HTTP/2 200 OK"
+2025-07-10 22:48:05,955 [INFO] [download] Downloaded https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg to temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg
+2025-07-10 22:48:05,960 [ERROR] [error] Failed to process record 31478816-1a92-446c-a96d-d220c46d8f7a: 'DocumentProcessor' object has no attribute 'process'
+2025-07-10 22:48:05,960 [WARNING] [summary] No analyses for patient 06574a9e-b785-486d-ad13-abec14a4f04f, skipping summary generation.
+2025-07-10 22:48:05,960 [INFO] Completed Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 22:50:24,432 [INFO] Starting Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 22:50:24,432 [INFO] [startup] Using SUPABASE_SERVICE_ROLE for Supabase client
+2025-07-10 22:50:25,369 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?select=%2A "HTTP/2 200 OK"
+2025-07-10 22:50:25,384 [INFO] [db] Found 1 patients in DB
+2025-07-10 22:50:25,386 [INFO] [patient] Processing patient 06574a9e-b785-486d-ad13-abec14a4f04f (user 194131e8-ff2a-4c0b-9437-be7f543a1e3c)
+2025-07-10 22:50:25,670 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?select=%2A&patient_id=eq.06574a9e-b785-486d-ad13-abec14a4f04f&processed=eq.False "HTTP/2 200 OK"
+2025-07-10 22:50:25,670 [INFO] [db] Found 3 unprocessed records for patient 06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 22:50:25,670 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg' for record 12857135-a12a-459c-bd56-91d1c9385004
+2025-07-10 22:50:25,670 [INFO] [download] File already exists locally: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg
+2025-07-10 22:50:25,866 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 22:50:33,678 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 22:50:33,696 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 22:50:33,707 [INFO] [analysis] Saved analysis to temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_12857135-a12a-459c-bd56-91d1c9385004_analysis.txt
+2025-07-10 22:50:33,707 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg' for record 33f4d6c5-f49c-48a7-b272-99dc8fb688af
+2025-07-10 22:50:33,707 [INFO] [download] File already exists locally: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg
+2025-07-10 22:50:33,891 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 22:50:41,523 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 22:50:41,535 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 22:50:41,545 [INFO] [analysis] Saved analysis to temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_33f4d6c5-f49c-48a7-b272-99dc8fb688af_analysis.txt
+2025-07-10 22:50:41,545 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg' for record 31478816-1a92-446c-a96d-d220c46d8f7a
+2025-07-10 22:50:41,545 [INFO] [download] File already exists locally: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg
+2025-07-10 22:50:41,726 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 22:50:47,553 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 22:50:47,566 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 22:50:47,577 [INFO] [analysis] Saved analysis to temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_31478816-1a92-446c-a96d-d220c46d8f7a_analysis.txt
+2025-07-10 22:50:47,577 [ERROR] [summary] Failed to generate/upload summary or update DB for patient 06574a9e-b785-486d-ad13-abec14a4f04f: cannot import name 'PatientDemographics' from 'processing_engine.usecases.ayurlekha.modules' (/home/vibhash/Documents/Optuze-backend-allapps/processing_engine/usecases/ayurlekha/modules.py)
+2025-07-10 22:50:47,577 [INFO] Completed Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 22:53:29,155 [INFO] Starting Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 22:53:29,156 [INFO] [startup] Using SUPABASE_SERVICE_ROLE for Supabase client
+2025-07-10 22:53:29,904 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?select=%2A "HTTP/2 200 OK"
+2025-07-10 22:53:29,919 [INFO] [db] Found 1 patients in DB
+2025-07-10 22:53:29,920 [INFO] [patient] Processing patient 06574a9e-b785-486d-ad13-abec14a4f04f (user 194131e8-ff2a-4c0b-9437-be7f543a1e3c)
+2025-07-10 22:53:30,209 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?select=%2A&patient_id=eq.06574a9e-b785-486d-ad13-abec14a4f04f&processed=eq.False "HTTP/2 200 OK"
+2025-07-10 22:53:30,210 [INFO] [db] Found 3 unprocessed records for patient 06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 22:53:30,210 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg' for record 12857135-a12a-459c-bd56-91d1c9385004
+2025-07-10 22:53:30,210 [INFO] [download] File already exists locally: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg
+2025-07-10 22:53:30,210 [INFO] [analysis] Analysis already exists: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_12857135-a12a-459c-bd56-91d1c9385004_analysis.txt
+2025-07-10 22:53:30,210 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg' for record 33f4d6c5-f49c-48a7-b272-99dc8fb688af
+2025-07-10 22:53:30,211 [INFO] [download] File already exists locally: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg
+2025-07-10 22:53:30,211 [INFO] [analysis] Analysis already exists: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_33f4d6c5-f49c-48a7-b272-99dc8fb688af_analysis.txt
+2025-07-10 22:53:30,211 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg' for record 31478816-1a92-446c-a96d-d220c46d8f7a
+2025-07-10 22:53:30,211 [INFO] [download] File already exists locally: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg
+2025-07-10 22:53:30,211 [INFO] [analysis] Analysis already exists: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_31478816-1a92-446c-a96d-d220c46d8f7a_analysis.txt
+2025-07-10 22:53:30,224 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 22:53:37,977 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 22:53:37,996 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 22:53:38,009 [INFO] [summary] Saved summary markdown to temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_Ayurlekha_20250710T172338.md
+2025-07-10 22:53:38,024 [ERROR] [summary] Failed to generate/upload summary or update DB for patient 06574a9e-b785-486d-ad13-abec14a4f04f: SyncBucketActionsMixin.upload() got an unexpected keyword argument 'upsert'
+2025-07-10 22:53:38,024 [INFO] Completed Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 23:13:47,083 [INFO] Starting Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 23:13:47,083 [INFO] [startup] Using SUPABASE_SERVICE_ROLE for Supabase client
+2025-07-10 23:13:47,582 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?select=%2A "HTTP/2 200 OK"
+2025-07-10 23:13:47,584 [INFO] [db] Found 1 patients in DB
+2025-07-10 23:13:47,584 [INFO] [patient] Processing patient 06574a9e-b785-486d-ad13-abec14a4f04f (user 194131e8-ff2a-4c0b-9437-be7f543a1e3c)
+2025-07-10 23:13:47,861 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?select=%2A&patient_id=eq.06574a9e-b785-486d-ad13-abec14a4f04f&processed=eq.False "HTTP/2 200 OK"
+2025-07-10 23:13:47,863 [INFO] [db] Found 3 unprocessed records for patient 06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 23:13:47,863 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg' for record 12857135-a12a-459c-bd56-91d1c9385004
+2025-07-10 23:13:47,863 [INFO] [download] File already exists locally: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752156335652-l78p2a8j8s.jpg
+2025-07-10 23:13:47,863 [INFO] [analysis] Analysis already exists: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_12857135-a12a-459c-bd56-91d1c9385004_analysis.txt
+2025-07-10 23:13:47,863 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg' for record 33f4d6c5-f49c-48a7-b272-99dc8fb688af
+2025-07-10 23:13:47,863 [INFO] [download] File already exists locally: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752156395710-8a6yzbrrim3.jpg
+2025-07-10 23:13:47,863 [INFO] [analysis] Analysis already exists: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_33f4d6c5-f49c-48a7-b272-99dc8fb688af_analysis.txt
+2025-07-10 23:13:47,863 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg' for record 31478816-1a92-446c-a96d-d220c46d8f7a
+2025-07-10 23:13:47,863 [INFO] [download] File already exists locally: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/1752158018352-9hq3r2tfvsp.jpg
+2025-07-10 23:13:47,863 [INFO] [analysis] Analysis already exists: temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_31478816-1a92-446c-a96d-d220c46d8f7a_analysis.txt
+2025-07-10 23:13:47,871 [INFO] [summary] Saved summary markdown to temp_medical_docs/194131e8-ff2a-4c0b-9437-be7f543a1e3c_06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_Ayurlekha_20250710T174347.md
+2025-07-10 23:13:48,430 [INFO] HTTP Request: POST https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/Ayurlekha/194131e8-ff2a-4c0b-9437-be7f543a1e3c/06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_Ayurlekha_20250710T174347.md "HTTP/2 200 OK"
+2025-07-10 23:13:48,430 [INFO] [summary] Uploaded summary to Supabase: Ayurlekha/194131e8-ff2a-4c0b-9437-be7f543a1e3c/06574a9e-b785-486d-ad13-abec14a4f04f/06574a9e-b785-486d-ad13-abec14a4f04f_Ayurlekha_20250710T174347.md
+2025-07-10 23:13:48,677 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?id=eq.06574a9e-b785-486d-ad13-abec14a4f04f "HTTP/2 200 OK"
+2025-07-10 23:13:48,801 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?id=eq.12857135-a12a-459c-bd56-91d1c9385004 "HTTP/2 200 OK"
+2025-07-10 23:13:48,910 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?id=eq.33f4d6c5-f49c-48a7-b272-99dc8fb688af "HTTP/2 200 OK"
+2025-07-10 23:13:49,027 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?id=eq.31478816-1a92-446c-a96d-d220c46d8f7a "HTTP/2 200 OK"
+2025-07-10 23:13:49,027 [INFO] [db] Updated ayurlekha_generated_at and processed flags for patient 06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 23:13:49,027 [INFO] Completed Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 23:24:28,322 [INFO] Starting Ayurlekha summary pipeline (ayurlekha.processor)
+2025-07-10 23:24:28,322 [INFO] [startup] Using SUPABASE_SERVICE_ROLE for Supabase client
+2025-07-10 23:24:28,668 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?select=%2A "HTTP/2 200 OK"
+2025-07-10 23:24:28,670 [INFO] [db] Found 3 patients in DB
+2025-07-10 23:24:28,670 [INFO] [patient] Processing patient 06574a9e-b785-486d-ad13-abec14a4f04f (user 194131e8-ff2a-4c0b-9437-be7f543a1e3c)
+2025-07-10 23:24:28,772 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?select=%2A&patient_id=eq.06574a9e-b785-486d-ad13-abec14a4f04f&processed=eq.False "HTTP/2 200 OK"
+2025-07-10 23:24:28,772 [INFO] [db] Found 0 unprocessed records for patient 06574a9e-b785-486d-ad13-abec14a4f04f
+2025-07-10 23:24:28,774 [INFO] [patient] Processing patient e02d2a6d-d71f-4d02-b9fc-aa61035696a6 (user 5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8)
+2025-07-10 23:24:28,891 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?select=%2A&patient_id=eq.e02d2a6d-d71f-4d02-b9fc-aa61035696a6&processed=eq.False "HTTP/2 200 OK"
+2025-07-10 23:24:28,893 [INFO] [db] Found 1 unprocessed records for patient e02d2a6d-d71f-4d02-b9fc-aa61035696a6
+2025-07-10 23:24:28,893 [INFO] [download] bucket='medical-documents', remote_path='5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/e02d2a6d-d71f-4d02-b9fc-aa61035696a6/1752169886575-tozpdg26a4l.jpg' for record 948c4648-2c59-4008-bd24-32ce5d265022
+2025-07-10 23:24:29,530 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/e02d2a6d-d71f-4d02-b9fc-aa61035696a6/1752169886575-tozpdg26a4l.jpg "HTTP/2 200 OK"
+2025-07-10 23:24:29,606 [INFO] [download] Downloaded https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/e02d2a6d-d71f-4d02-b9fc-aa61035696a6/1752169886575-tozpdg26a4l.jpg to temp_medical_docs/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8_e02d2a6d-d71f-4d02-b9fc-aa61035696a6/1752169886575-tozpdg26a4l.jpg
+2025-07-10 23:24:29,734 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:24:38,345 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:24:38,348 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:24:38,361 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:24:40,859 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 503 Service Unavailable"
+2025-07-10 23:24:40,876 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:24:43,730 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:24:43,731 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:24:43,936 [INFO] response: https://www.bing.com/search?q=Dyphylline+drug+medication+pharmaceutical 200
+2025-07-10 23:24:43,976 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:24:48,003 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:24:48,005 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:24:48,219 [INFO] response: https://www.bing.com/search?q=Dyphylline+drug+medication+pharmaceutical 200
+2025-07-10 23:24:48,762 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:24:52,066 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:24:52,067 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:24:54,079 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:24:56,677 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:24:56,679 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:24:56,878 [INFO] response: https://www.bing.com/search?q=Pyridoxal+5+Phosphate+drug+medication+pharmaceutical 200
+2025-07-10 23:24:56,934 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:00,924 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:00,925 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:00,938 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:05,201 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:05,202 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:05,205 [INFO] [analysis] Saved analysis to temp_medical_docs/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8_e02d2a6d-d71f-4d02-b9fc-aa61035696a6/e02d2a6d-d71f-4d02-b9fc-aa61035696a6_948c4648-2c59-4008-bd24-32ce5d265022_analysis.txt
+2025-07-10 23:25:05,208 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:10,218 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:10,219 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:10,221 [INFO] [summary] Saved summary markdown to temp_medical_docs/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8_e02d2a6d-d71f-4d02-b9fc-aa61035696a6/e02d2a6d-d71f-4d02-b9fc-aa61035696a6_Ayurlekha_20250710T175510.md
+2025-07-10 23:25:10,602 [INFO] HTTP Request: POST https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/Ayurlekha/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/e02d2a6d-d71f-4d02-b9fc-aa61035696a6/e02d2a6d-d71f-4d02-b9fc-aa61035696a6_Ayurlekha_20250710T175510.md "HTTP/2 200 OK"
+2025-07-10 23:25:10,602 [INFO] [summary] Uploaded summary to Supabase: Ayurlekha/5da4d5f0-69cc-4d36-a6c5-5ddb9a7f9bf8/e02d2a6d-d71f-4d02-b9fc-aa61035696a6/e02d2a6d-d71f-4d02-b9fc-aa61035696a6_Ayurlekha_20250710T175510.md
+2025-07-10 23:25:11,120 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?id=eq.e02d2a6d-d71f-4d02-b9fc-aa61035696a6 "HTTP/2 200 OK"
+2025-07-10 23:25:11,380 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?id=eq.948c4648-2c59-4008-bd24-32ce5d265022 "HTTP/2 200 OK"
+2025-07-10 23:25:11,381 [INFO] [db] Updated ayurlekha_generated_at and processed flags for patient e02d2a6d-d71f-4d02-b9fc-aa61035696a6
+2025-07-10 23:25:11,386 [INFO] [patient] Processing patient 1fb62c0d-280d-4c22-adb8-213ea93e0d4d (user bc22d16d-a170-4a6e-82da-9badc1a0ff90)
+2025-07-10 23:25:11,645 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?select=%2A&patient_id=eq.1fb62c0d-280d-4c22-adb8-213ea93e0d4d&processed=eq.False "HTTP/2 200 OK"
+2025-07-10 23:25:11,645 [INFO] [db] Found 3 unprocessed records for patient 1fb62c0d-280d-4c22-adb8-213ea93e0d4d
+2025-07-10 23:25:11,645 [INFO] [download] bucket='medical-documents', remote_path='bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752169955944-yrxcbc1uy7s.jpeg' for record f7896ae0-cf7f-4c07-a521-a4eefd870703
+2025-07-10 23:25:12,167 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752169955944-yrxcbc1uy7s.jpeg "HTTP/2 200 OK"
+2025-07-10 23:25:12,186 [INFO] [download] Downloaded https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752169955944-yrxcbc1uy7s.jpeg to temp_medical_docs/bc22d16d-a170-4a6e-82da-9badc1a0ff90_1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752169955944-yrxcbc1uy7s.jpeg
+2025-07-10 23:25:12,220 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:16,015 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 503 Service Unavailable"
+2025-07-10 23:25:16,016 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:23,931 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:23,931 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:23,941 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:26,606 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:26,606 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:26,796 [INFO] response: https://www.bing.com/search?q=CANDID+drug+medication+pharmaceutical 200
+2025-07-10 23:25:26,856 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:28,647 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:25:28,648 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:30,447 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:25:31,459 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:34,819 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:34,822 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:34,835 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:36,602 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:36,603 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:38,616 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:41,474 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:41,475 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:41,675 [INFO] response: https://www.bing.com/search?q=Wysolone+drug+medication+pharmaceutical 200
+2025-07-10 23:25:41,718 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:45,690 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:45,691 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:45,699 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:49,170 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:49,172 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:51,181 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:54,187 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:54,188 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:54,379 [INFO] response: https://www.bing.com/search?q=VITCOFOL+drug+medication+pharmaceutical 200
+2025-07-10 23:25:54,486 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:25:58,370 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:25:58,371 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:25:58,375 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:02,527 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:02,528 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:04,534 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:05,793 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:05,794 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:05,988 [INFO] response: https://www.bing.com/search?q=HEMOVIT+PLUS+drug+medication+pharmaceutical 200
+2025-07-10 23:26:06,071 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:09,528 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:09,530 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:09,537 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:13,279 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:13,281 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:15,287 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:18,081 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:18,082 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:18,289 [INFO] response: https://www.bing.com/search?q=DERIPHYLLINE+R+drug+medication+pharmaceutical 200
+2025-07-10 23:26:18,773 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:22,347 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:22,348 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:22,352 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:24,141 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:26:24,146 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:24,636 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:26:25,639 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:27,446 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:26:29,452 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:31,240 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:26:31,246 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:33,036 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:26:33,037 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:36,472 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:36,473 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:38,481 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:41,264 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:41,269 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:41,476 [INFO] response: https://www.bing.com/search?q=Etophylline+drug+medication+pharmaceutical 200
+2025-07-10 23:26:41,541 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:45,146 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:45,147 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:45,160 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:48,423 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:48,424 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:50,430 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:52,992 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:52,994 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:53,216 [INFO] response: https://www.bing.com/search?q=Theophylline+drug+medication+pharmaceutical 200
+2025-07-10 23:26:53,274 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:26:58,603 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:26:58,604 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:26:58,616 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:02,278 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:02,279 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:02,282 [INFO] [analysis] Saved analysis to temp_medical_docs/bc22d16d-a170-4a6e-82da-9badc1a0ff90_1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1fb62c0d-280d-4c22-adb8-213ea93e0d4d_f7896ae0-cf7f-4c07-a521-a4eefd870703_analysis.txt
+2025-07-10 23:27:02,282 [INFO] [download] bucket='medical-documents', remote_path='bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752169995616-ol391kfmwd9.jpeg' for record 3843a324-4161-4e4b-92d8-9b55d39f37b5
+2025-07-10 23:27:03,299 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752169995616-ol391kfmwd9.jpeg "HTTP/2 200 OK"
+2025-07-10 23:27:03,338 [INFO] [download] Downloaded https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752169995616-ol391kfmwd9.jpeg to temp_medical_docs/bc22d16d-a170-4a6e-82da-9badc1a0ff90_1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752169995616-ol391kfmwd9.jpeg
+2025-07-10 23:27:03,391 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:18,184 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:18,185 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:18,191 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:20,828 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:20,829 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:21,038 [INFO] response: https://www.bing.com/search?q=Amlo+drug+medication+pharmaceutical 200
+2025-07-10 23:27:21,092 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:25,325 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:25,326 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:25,330 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:29,080 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:29,081 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:31,086 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:33,804 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:33,809 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:34,007 [INFO] response: https://www.bing.com/search?q=Acyclovir+drug+medication+pharmaceutical 200
+2025-07-10 23:27:34,077 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:37,590 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:37,592 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:37,599 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:40,774 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:40,775 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:42,783 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:45,337 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:45,338 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:45,539 [INFO] response: https://www.bing.com/search?q=Pregabalin+drug+medication+pharmaceutical 200
+2025-07-10 23:27:45,609 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:48,883 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:48,884 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:48,896 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:52,254 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:52,256 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:54,262 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:27:57,019 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:27:57,020 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:27:57,230 [INFO] response: https://www.bing.com/search?q=Carbamazepine+drug+medication+pharmaceutical 200
+2025-07-10 23:27:57,791 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:01,220 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:01,221 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:01,226 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:05,082 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:05,087 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:07,095 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:08,250 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:08,252 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:08,447 [INFO] response: https://www.bing.com/search?q=Silodou+drug+medication+pharmaceutical 200
+2025-07-10 23:28:08,998 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:10,812 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:28:10,814 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:12,600 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:28:13,603 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:16,681 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:16,682 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:16,687 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:17,175 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:28:17,177 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:18,961 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:28:19,964 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:21,788 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:28:23,792 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:25,925 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:25,926 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:27,934 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:29,483 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:28:29,486 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:31,795 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:31,796 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:32,065 [INFO] response: https://www.bing.com/search?q=Foracort+drug+medication+pharmaceutical 200
+2025-07-10 23:28:32,505 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:35,890 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:35,898 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:35,904 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:39,654 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:39,655 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:39,656 [INFO] [analysis] Saved analysis to temp_medical_docs/bc22d16d-a170-4a6e-82da-9badc1a0ff90_1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1fb62c0d-280d-4c22-adb8-213ea93e0d4d_3843a324-4161-4e4b-92d8-9b55d39f37b5_analysis.txt
+2025-07-10 23:28:39,656 [INFO] [download] bucket='medical-documents', remote_path='bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752170014189-wi6j5n3fu5a.jpeg' for record 8e84235d-7917-4089-8243-fcce3099af06
+2025-07-10 23:28:40,386 [INFO] HTTP Request: GET https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752170014189-wi6j5n3fu5a.jpeg "HTTP/2 200 OK"
+2025-07-10 23:28:40,390 [INFO] [download] Downloaded https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/public/medical-documents/bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752170014189-wi6j5n3fu5a.jpeg to temp_medical_docs/bc22d16d-a170-4a6e-82da-9badc1a0ff90_1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1752170014189-wi6j5n3fu5a.jpeg
+2025-07-10 23:28:40,422 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:48,033 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:48,034 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:48,038 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:50,535 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:50,535 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:50,734 [INFO] response: https://www.bing.com/search?q=Dulane+drug+medication+pharmaceutical 200
+2025-07-10 23:28:50,793 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:53,181 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:53,182 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:53,190 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:28:56,035 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:28:56,036 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:28:58,043 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:00,452 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:00,453 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:00,646 [INFO] response: https://www.bing.com/search?q=Symbal+drug+medication+pharmaceutical 200
+2025-07-10 23:29:00,762 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:04,289 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:04,291 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:04,299 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:06,108 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:06,109 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:08,121 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:10,406 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:10,407 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:10,609 [INFO] response: https://www.bing.com/search?q=Duloxetine+drug+medication+pharmaceutical 200
+2025-07-10 23:29:10,661 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:12,216 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:29:12,218 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:13,774 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:29:14,778 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:16,319 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:29:18,323 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:19,857 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:29:19,861 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:21,434 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:29:21,436 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:22,997 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:29:24,006 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:25,551 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:29:27,555 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:29,091 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:29:31,097 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:32,328 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:32,329 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:32,541 [INFO] response: https://www.bing.com/search?q=Tegretol+drug+medication+pharmaceutical 200
+2025-07-10 23:29:32,593 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:34,588 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:34,590 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:34,597 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:38,020 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:38,021 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:40,226 [INFO] response: https://www.bing.com/search?q=Carbamazepine+drug+medication+pharmaceutical 200
+2025-07-10 23:29:40,779 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:42,661 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:42,662 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:42,669 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:45,770 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:45,772 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:47,778 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:50,242 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:50,244 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:50,430 [INFO] response: https://www.bing.com/search?q=Sonoka+gel+drug+medication+pharmaceutical 200
+2025-07-10 23:29:50,481 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:53,702 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:53,703 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:29:53,709 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:29:58,158 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:29:58,159 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:30:00,165 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:02,689 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:30:02,691 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:30:02,877 [INFO] response: https://www.bing.com/search?q=Gabapen+LX+gel+drug+medication+pharmaceutical 200
+2025-07-10 23:30:02,932 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:06,313 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:30:06,315 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:30:06,325 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:10,900 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:30:10,902 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:30:13,097 [INFO] response: https://www.bing.com/search?q=Pregabalin+drug+medication+pharmaceutical 200
+2025-07-10 23:30:13,151 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:14,712 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:30:14,714 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:16,258 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:30:17,262 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:20,351 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:30:20,352 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:30:20,357 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:21,883 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:30:21,885 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:23,528 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:30:24,531 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:24,896 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:30:26,899 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:28,851 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:30:28,852 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:30:28,854 [INFO] [analysis] Saved analysis to temp_medical_docs/bc22d16d-a170-4a6e-82da-9badc1a0ff90_1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1fb62c0d-280d-4c22-adb8-213ea93e0d4d_8e84235d-7917-4089-8243-fcce3099af06_analysis.txt
+2025-07-10 23:30:28,856 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:30,421 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:30:30,422 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:30,814 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:30:31,816 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:33,405 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 429 Too Many Requests"
+2025-07-10 23:30:35,408 [INFO] 
+LiteLLM completion() model= gemini-2.5-flash-preview-04-17; provider = gemini
+2025-07-10 23:30:46,917 [INFO] HTTP Request: POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-04-17:generateContent?key=AIzaSyCCCGzeRqSOMIAb54ADTuEAWBsC7dZNxRc "HTTP/1.1 200 OK"
+2025-07-10 23:30:46,918 [INFO] Wrapper: Completed Call, calling success_handler
+2025-07-10 23:30:46,920 [INFO] [summary] Saved summary markdown to temp_medical_docs/bc22d16d-a170-4a6e-82da-9badc1a0ff90_1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1fb62c0d-280d-4c22-adb8-213ea93e0d4d_Ayurlekha_20250710T180046.md
+2025-07-10 23:30:47,701 [INFO] HTTP Request: POST https://sdtpneknjrolwtyffnpe.supabase.co/storage/v1/object/medical-documents/Ayurlekha/bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1fb62c0d-280d-4c22-adb8-213ea93e0d4d_Ayurlekha_20250710T180046.md "HTTP/2 200 OK"
+2025-07-10 23:30:47,702 [INFO] [summary] Uploaded summary to Supabase: Ayurlekha/bc22d16d-a170-4a6e-82da-9badc1a0ff90/1fb62c0d-280d-4c22-adb8-213ea93e0d4d/1fb62c0d-280d-4c22-adb8-213ea93e0d4d_Ayurlekha_20250710T180046.md
+2025-07-10 23:30:48,043 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/patients?id=eq.1fb62c0d-280d-4c22-adb8-213ea93e0d4d "HTTP/2 200 OK"
+2025-07-10 23:30:48,186 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?id=eq.f7896ae0-cf7f-4c07-a521-a4eefd870703 "HTTP/2 200 OK"
+2025-07-10 23:30:48,316 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?id=eq.3843a324-4161-4e4b-92d8-9b55d39f37b5 "HTTP/2 200 OK"
+2025-07-10 23:30:48,436 [INFO] HTTP Request: PATCH https://sdtpneknjrolwtyffnpe.supabase.co/rest/v1/medical_records?id=eq.8e84235d-7917-4089-8243-fcce3099af06 "HTTP/2 200 OK"
+2025-07-10 23:30:48,437 [INFO] [db] Updated ayurlekha_generated_at and processed flags for patient 1fb62c0d-280d-4c22-adb8-213ea93e0d4d
+2025-07-10 23:30:48,437 [INFO] Completed Ayurlekha summary pipeline (ayurlekha.processor)
