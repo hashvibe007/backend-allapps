@@ -1,64 +1,106 @@
 import dspy
-from typing import List
+from typing import List, Dict, Any
 
 
 class DocumentProcessorSignature(dspy.Signature):
     """
-    Given an image of a medical document, your task is to extract structured information.
-    Identify the type of document, key demographic details, a summary, and all specific medical entities.
-    Also, provide a confidence score for the extraction and list any questions or uncertainties for user review.
+    Given an image of a medical document, extract structured information including document type, demographics, summary, and all specific medical entities.
+    Also provide a confidence score and list any questions or uncertainties for user review.
     """
 
     document_image: dspy.Image = dspy.InputField(
         desc="An image of a single medical document."
     )
     detailed_analysis: str = dspy.OutputField(
-        desc="The detailed analysis of the medical document. ONLY SEMANTICALLY CORRECT AND ACCURATE RESULT IS ACCEPTED AND WITH HIGH CONFIDENCE"
+        desc="Detailed analysis of the medical document. Must be semantically correct and accurate."
     )
     extracted_medicines: List[str] = dspy.OutputField(
-        desc="The extracted medicines from the medical document. ONLY RETURN THE MEDICINES THAT ARE possible medicines. DO NOT RETURN ANYTHING ELSE."
+        desc="Extracted medicines from the document. Only return valid medicine names."
     )
 
 
-class IllnessDetails(dspy.Signature):
-    period: str = dspy.OutputField(
-        desc="The period of illness of the patient roughly like Jan 2024 to Feb 2024"
-    )
-    department: list = dspy.OutputField(
-        desc="The department of the illness like Cardiology, Neurology, etc."
-    )
-    complaint: list = dspy.OutputField(
-        desc="The complaint of the illness like chest pain, headache, etc."
-    )
-    diagnosis: list = dspy.OutputField(
-        desc="The diagnosis of the illness like heart disease, stroke, etc."
-    )
-    treatment: list = dspy.OutputField(
-        desc="The treatment of the illness like medication, surgery, etc."
-    )
-    medications: list = dspy.OutputField(
-        desc="The medications with dosage of the illness like 10mg of Aspirin, 500mg of Paracetamol, etc."
-    )
-    tests: list = dspy.OutputField(
-        desc="The tests done for the illness like ECG, X-ray, etc."
-    )
-    procedures: list = dspy.OutputField(
-        desc="The procedures done for the illness like angioplasty, bypass surgery, etc."
-    )
-    system_notes: list = dspy.OutputField(
-        desc="The system notes of the illness like patient is in stable condition, patient is in critical condition, etc."
-    )
+class PatientSignature(dspy.Signature):
+    id: str = dspy.OutputField(desc="Patient ID.")
+    name: str = dspy.OutputField(desc="Patient name.")
+    dob: str = dspy.OutputField(desc="Date of birth.")
+    age: int = dspy.OutputField(desc="Age.")
+    bloodGroup: str = dspy.OutputField(desc="Blood group.")
 
 
-class PatientDemographicsSignature(dspy.Signature):
-    """
-    Given a list of medical documents extraction and analysis, your task is to establish the basic ground truth for the patient.
-    """
+class PrimaryAlertSignature(dspy.Signature):
+    alert: str = dspy.OutputField(desc="Primary alert.")
+    specialCare: str = dspy.OutputField(desc="Special care instructions.")
 
-    medical_history: str = dspy.InputField(desc="The medical history of the patient")
-    patient_name: str = dspy.OutputField(desc="The name of the patient")
-    age: int = dspy.OutputField(desc="The current age of the patient")
-    gender: str = dspy.OutputField(desc="The gender of the patient")
-    illness_details: list = dspy.OutputField(
-        desc="List of illness events with period, department, complaint, diagnosis, treatment"
+
+class ChronicConditionSignature(dspy.Signature):
+    name: str = dspy.OutputField(desc="Condition name.")
+    since: str = dspy.OutputField(desc="Since when.")
+    status: str = dspy.OutputField(desc="Status.")
+    notes: str = dspy.OutputField(desc="Notes.")
+
+
+class HistoryTimelineSignature(dspy.Signature):
+    date: str = dspy.OutputField(desc="Date of event.")
+    event: str = dspy.OutputField(desc="Event description.")
+
+
+class LabTestSignature(dspy.Signature):
+    date: str = dspy.OutputField(desc="Date of test.")
+    investigation: str = dspy.OutputField(desc="Investigation name.")
+    result: str = dspy.OutputField(desc="Result or notes.")
+
+
+class MedicationSignature(dspy.Signature):
+    name: str = dspy.OutputField(desc="Medication name.")
+    dosage: str = dspy.OutputField(desc="Dosage.")
+    frequency: str = dspy.OutputField(desc="Frequency.")
+    indication: str = dspy.OutputField(desc="Indication.")
+
+
+class DoctorSignature(dspy.Signature):
+    type: str = dspy.OutputField(
+        desc="Type of doctor or center (e.g., Primary Oncologist, Transplant Center, etc.)"
     )
+    name: str = dspy.OutputField(desc="Name of the doctor or center.")
+    contact: str = dspy.OutputField(desc="Contact information.")
+
+
+class EmergencyContactSignature(dspy.Signature):
+    name: str = dspy.OutputField(desc="Name of the contact.")
+    relation: str = dspy.OutputField(desc="Relation to the patient.")
+    phone: str = dspy.OutputField(desc="Phone number.")
+
+
+class FooterSignature(dspy.Signature):
+    date: str = dspy.OutputField(desc="Footer date.")
+    generatedBy: str = dspy.OutputField(desc="Generated by.")
+    notMedicalDocument: str = dspy.OutputField(desc="Not a Medical Document label.")
+    disclaimer: str = dspy.OutputField(desc="Disclaimer text.")
+
+
+class MetaSignature(dspy.Signature):
+    version: str = dspy.OutputField(desc="Version.")
+    generated_at: str = dspy.OutputField(desc="Generated at timestamp.")
+    patient_id: str = dspy.OutputField(desc="Patient ID.")
+    user_id: str = dspy.OutputField(desc="User ID.")
+
+
+class AyurlekhaSummarySignature(dspy.Signature):
+    medical_history: str = dspy.InputField(
+        desc="Combined analysis and medical history for the patient."
+    )
+    patient: Dict[str, Any] = dspy.OutputField(desc="Patient details.")
+    summary: str = dspy.OutputField(desc="Summary string.")
+    primaryAlert: Dict[str, Any] = dspy.OutputField(desc="Primary alert and care.")
+    chronicConditions: List[Dict[str, Any]] = dspy.OutputField(
+        desc="Chronic conditions."
+    )
+    historyTimeline: List[Dict[str, Any]] = dspy.OutputField(desc="History timeline.")
+    labTests: List[Dict[str, Any]] = dspy.OutputField(desc="Lab tests.")
+    medications: List[Dict[str, Any]] = dspy.OutputField(desc="Medications.")
+    doctors: List[Dict[str, Any]] = dspy.OutputField(desc="Doctors and hospitals.")
+    emergencyContacts: List[Dict[str, Any]] = dspy.OutputField(
+        desc="Emergency contacts."
+    )
+    footer: Dict[str, Any] = dspy.OutputField(desc="Footer info.")
+    meta: Dict[str, Any] = dspy.OutputField(desc="Meta info.")

@@ -10,6 +10,10 @@ from processing_engine.common.supabase_io import (
     upload_file_to_supabase,
 )
 from processing_engine.usecases.ayurlekha.modules import DocumentProcessor
+import json
+
+# NEW: Import mem0 for vector storage
+from mem0 import Memory
 
 # Load config and logger
 config = load_config()
@@ -23,17 +27,40 @@ medgemma_lm = dspy.LM(
 )
 gemini_api_key = config["GEMINI_API_KEY"]
 gemini_lm = dspy.LM(
-    "gemini/gemini-2.5-flash-preview-04-17",
+    "gemini/gemini-2.0-flash",
     api_key=gemini_api_key,
 )
 dspy.configure(lm=gemini_lm)
+
+# Ensure Gemini API key is set for mem0
+import os
+
+os.environ["GEMINI_API_KEY"] = gemini_api_key
+os.environ["OPENAI_API_KEY"] = config["OPENAI_API_KEY"]
+
+# NEW: Configure mem0 with ChromaDB for local development
+mem0_config = {
+    "embedder": {
+        "provider": "gemini",
+        "config": {"model": "models/text-embedding-004"},
+    },
+    "vector_store": {
+        "provider": "chroma",
+        "config": {"path": "./chromadb_data", "collection_name": "memories"},
+    },
+    "llm": {},
+}
+mem0_memory = Memory.from_config(mem0_config)
 
 # Helper: extract bucket and remote_path from file_url
 
 
 def extract_bucket_and_path(file_url):
-    """Given a Supabase public file_url, extract bucket and relative path."""
-    # Example: .../storage/v1/object/public/medical-documents/user_id/patient_id/filename
+    """
+    Given a Supabase public file_url, extract bucket and relative path.
+    Example: .../storage/v1/object/public/medical-documents/user_id/patient_id/filename
+    Returns (bucket, remote_path).
+    """
     parts = file_url.split("/object/public/")
     if len(parts) != 2:
         raise ValueError(f"Malformed file_url: {file_url}")
@@ -46,6 +73,10 @@ def extract_bucket_and_path(file_url):
 
 
 def process_patients():
+    """
+    Main pipeline to process all patients, generate detailed JSON summaries for each, and upload results to Supabase.
+
+    """
     from supabase import create_client
 
     supabase_url = config["SUPABASE_URL"]
@@ -113,9 +144,21 @@ def process_patients():
                 else:
                     logger.info(f"[analysis] Analysis already exists: {analysis_path}")
                 with open(analysis_path, "r") as f:
+                    analysis_text = f.read()
                     analysis_texts.append(
                         f"--- Analysis from {os.path.basename(analysis_path)} ---\n"
-                        + f.read()
+                        + analysis_text
+                    )
+                    # FIX: Store each analysis as a string, not a dict
+                    mem0_memory.add(
+                        analysis_text,
+                        user_id=patient_id,
+                        metadata={"record_id": record_id, "user_id": user_id},
+                    )
+                    # Debug: Log total memories for this patient
+                    mems = mem0_memory.get_all(user_id=patient_id)
+                    logger.info(
+                        f"[mem0] Total existing memories for {patient_id}: {len(mems.get('results', []))}"
                     )
             except Exception as e:
                 logger.error(f"[error] Failed to process record {record_id}: {e}")
@@ -124,40 +167,65 @@ def process_patients():
                 f"[summary] No analyses for patient {patient_id}, skipping summary generation."
             )
             continue
-        # Aggregate all analyses into one string
-        combined_analysis = "\n".join(analysis_texts)
+        # NEW: Retrieve most relevant analyses from mem0 for this patient
+        # For demo, retrieve top 5 most relevant (can tune query as needed)
+        mem0_results = mem0_memory.search(
+            query=f"summarize patient {patient_id}", user_id=patient_id
+        )
+        # mem0_results is a dict with a 'results' key
+        relevant_analyses = []
+        if mem0_results and "results" in mem0_results:
+            for r in mem0_results["results"]:
+                # Each r is a dict with a 'memory' key (not 'content')
+                if "memory" in r:
+                    relevant_analyses.append(r["memory"])
+        combined_analysis = "\n".join(relevant_analyses)
+        logger.info(f"[summary] Combined analysis (from mem0): {combined_analysis}")
         # Run LLM module for structured summary
         try:
-            # Use a PatientDemographics-like module (assume imported or defined)
             from processing_engine.usecases.ayurlekha.modules import PatientDemographics
 
             patient_demographics_module = PatientDemographics()
-            summary_obj = patient_demographics_module(medical_history=combined_analysis)
-            # Build markdown summary
-            markdown_content = f"""# Patient Analysis Report\n\n## Patient Demographics\n- **Name:** {getattr(summary_obj, "patient_name", "Unknown")}\n- **Age:** {getattr(summary_obj, "age", "Unknown")}\n- **Gender:** {getattr(summary_obj, "gender", "Unknown")}\n\n## Illness History\n"""
-            for i, illness in enumerate(getattr(summary_obj, "illness_details", []), 1):
-                markdown_content += f"\n### Illness Event {i} ({getattr(illness, 'period', 'Unknown')})\n"
-                markdown_content += f"- **Department:** {', '.join(getattr(illness, 'department', []))}\n"
-                markdown_content += f"- **Complaints:** {', '.join(getattr(illness, 'complaint', [])) or 'None recorded'}\n"
-                markdown_content += f"- **Diagnosis:** {', '.join(getattr(illness, 'diagnosis', [])) or 'None recorded'}\n"
-                markdown_content += f"- **Treatment:** {', '.join(getattr(illness, 'treatment', [])) or 'None recorded'}\n"
-                markdown_content += f"- **Medications:** {', '.join(getattr(illness, 'medications', [])) or 'None prescribed'}\n"
-                markdown_content += f"- **Tests:** {', '.join(getattr(illness, 'tests', [])) or 'None recorded'}\n"
-                markdown_content += f"- **Procedures:** {', '.join(getattr(illness, 'procedures', [])) or 'None recorded'}\n"
-                markdown_content += f"- **System Notes:** {', '.join(getattr(illness, 'system_notes', [])) or 'None recorded'}\n"
+            summary_obj = patient_demographics_module(
+                medical_history=combined_analysis,
+                patient_id=patient_id,
+                user_id=user_id,
+            )
+            # NEW: Log LLM call history for debugging
+            dspy.inspect_history(n=5)
+            logger.info(f"[summary] Summary object: {summary_obj}")
+            # Build JSON summary (NEW FORMAT)
             timestamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
-            summary_filename = f"{patient_id}_Ayurlekha_{timestamp}.md"
-            summary_path = os.path.join(temp_dir, summary_filename)
-            with open(summary_path, "w") as f:
-                f.write(markdown_content)
-            logger.info(f"[summary] Saved summary markdown to {summary_path}")
-            # Upload to Supabase Storage (no upsert)
-            remote_summary_path = f"Ayurlekha/{user_id}/{patient_id}/{summary_filename}"
+            summary_json_filename = f"{patient_id}_Ayurlekha_{timestamp}.json"
+            summary_json_path = os.path.join(temp_dir, summary_json_filename)
+            # Explicitly build the summary dict using known output fields
+            summary_dict = {
+                "patient": getattr(summary_obj, "patient", None),
+                "summary": getattr(summary_obj, "summary", None),
+                "primaryAlert": getattr(summary_obj, "primaryAlert", None),
+                "chronicConditions": getattr(summary_obj, "chronicConditions", None),
+                "historyTimeline": getattr(summary_obj, "historyTimeline", None),
+                "labTests": getattr(summary_obj, "labTests", None),
+                "medications": getattr(summary_obj, "medications", None),
+                "doctors": getattr(summary_obj, "doctors", None),
+                "emergencyContacts": getattr(summary_obj, "emergencyContacts", None),
+                "footer": getattr(summary_obj, "footer", None),
+                "meta": getattr(summary_obj, "meta", None),
+            }
+            logger.info(
+                f"[summary] JSON to be written: {json.dumps(summary_dict, indent=2)}"
+            )
+            with open(summary_json_path, "w") as f:
+                json.dump(summary_dict, f, indent=2)
+            logger.info(f"[summary] Saved summary JSON to {summary_json_path}")
+            remote_json_path = (
+                f"Ayurlekha/{user_id}/{patient_id}/{summary_json_filename}"
+            )
             upload_file_to_supabase(
-                "medical-documents", remote_summary_path, summary_path
+                "medical-documents", remote_json_path, summary_json_path
             )
             logger.info(
-                f"[summary] Uploaded summary to Supabase: {remote_summary_path}"
+                f"[summary] Uploaded summary JSON to Supabase: {remote_json_path}"
             )
             # Update DB
             now_str = datetime.now(timezone.utc).isoformat()

@@ -3,3 +3,5 @@ supabase
 pytest
 python-dotenv
 ddgs
+chromadb
+mem0ai
