@@ -10,6 +10,7 @@ from processing_engine.common.supabase_io import (
     upload_file_to_supabase,
 )
 from processing_engine.usecases.ayurlekha.modules import DocumentProcessor
+from processing_engine.usecases.ayurlekha.modules import DocumentMetadataModule
 import json
 
 # NEW: Import mem0 for vector storage
@@ -159,6 +160,41 @@ def process_patients():
                     mems = mem0_memory.get_all(user_id=patient_id)
                     logger.info(
                         f"[mem0] Total existing memories for {patient_id}: {len(mems.get('results', []))}"
+                    )
+                    # NEW: Generate and save document metadata
+                    doc_metadata_module = DocumentMetadataModule()
+                    metadata_obj = doc_metadata_module(detailed_analysis=analysis_text)
+                    metadata_dict = {
+                        "intelligent_name": getattr(
+                            metadata_obj, "intelligent_name", None
+                        ),
+                        "category": getattr(metadata_obj, "category", None),
+                        "date": getattr(metadata_obj, "date", None),
+                        "department": getattr(metadata_obj, "department", None),
+                        "doctor_name": getattr(metadata_obj, "doctor_name", None),
+                        "patient_name": getattr(metadata_obj, "patient_name", None),
+                        "insights": getattr(metadata_obj, "insights", None),
+                        "actions": getattr(metadata_obj, "actions", None),
+                        "urgency": getattr(metadata_obj, "urgency", None),
+                        "summary": getattr(metadata_obj, "summary", None),
+                        "is_medical_document": getattr(
+                            metadata_obj, "is_medical_document", None
+                        ),
+                        "reason": getattr(metadata_obj, "reason", None),
+                    }
+                    logger.info(
+                        f"[metadata] Metadata for {local_path}: {json.dumps(metadata_dict, indent=2)}"
+                    )
+                    metadata_path = os.path.splitext(local_path)[0] + "_metadata.json"
+                    with open(metadata_path, "w") as mf:
+                        json.dump(metadata_dict, mf, indent=2)
+                    # NEW: Upload metadata JSON to Supabase Storage at the same location as the document
+                    remote_metadata_path = (
+                        os.path.splitext(remote_path)[0] + "_metadata.json"
+                    )
+                    upload_file_to_supabase(bucket, remote_metadata_path, metadata_path)
+                    logger.info(
+                        f"[metadata] Uploaded metadata to Supabase: {remote_metadata_path}"
                     )
             except Exception as e:
                 logger.error(f"[error] Failed to process record {record_id}: {e}")

@@ -86,6 +86,16 @@ class MetaSignature(dspy.Signature):
 
 
 class AyurlekhaSummarySignature(dspy.Signature):
+    """
+    For each action, medication, or follow-up, extract:
+    - start_date (from document or context)
+    - duration (if mentioned)
+    - end_date (if calculable)
+    - is_outdated (true if the action/medication/follow-up is no longer current as of today)
+    - outdated_reason (explain why, e.g., 'Follow-up was due on 2023-05-01 and is now overdue')
+    in addition to the usual summary fields.
+    """
+
     medical_history: str = dspy.InputField(
         desc="Combined analysis and medical history for the patient."
     )
@@ -97,10 +107,45 @@ class AyurlekhaSummarySignature(dspy.Signature):
     )
     historyTimeline: List[Dict[str, Any]] = dspy.OutputField(desc="History timeline.")
     labTests: List[Dict[str, Any]] = dspy.OutputField(desc="Lab tests.")
-    medications: List[Dict[str, Any]] = dspy.OutputField(desc="Medications.")
+    medications: List[Dict[str, Any]] = dspy.OutputField(
+        desc="Medications, each as a dict with name, dosage, frequency, start_date, duration, end_date, is_outdated, outdated_reason."
+    )
     doctors: List[Dict[str, Any]] = dspy.OutputField(desc="Doctors and hospitals.")
     emergencyContacts: List[Dict[str, Any]] = dspy.OutputField(
         desc="Emergency contacts."
     )
     footer: Dict[str, Any] = dspy.OutputField(desc="Footer info.")
     meta: Dict[str, Any] = dspy.OutputField(desc="Meta info.")
+
+
+class DocumentMetadataSignature(dspy.Signature):
+    detailed_analysis: str = dspy.InputField(
+        desc="Detailed analysis of the medical document."
+    )
+    intelligent_name: str = dspy.OutputField(
+        desc="Short, human-friendly name for the document."
+    )
+    category: str = dspy.OutputField(
+        desc="Document type, e.g., Prescription, Lab Report, Discharge Summary."
+    )
+    date: str = dspy.OutputField(desc="Date of the document or event.")
+    department: str = dspy.OutputField(desc="Medical department or specialty.")
+    doctor_name: str = dspy.OutputField(desc="Name of the doctor.")
+    patient_name: str = dspy.OutputField(desc="Name of the patient.")
+    insights: list = dspy.OutputField(
+        desc="List of unique, high-value findings or entities."
+    )
+    actions: list = dspy.OutputField(
+        desc="List of actions, each as a dict with description, start_date, duration, end_date, is_outdated, outdated_reason."
+    )
+    medications: list = dspy.OutputField(
+        desc="List of medications, each as a dict with name, dosage, frequency, start_date, duration, end_date, is_outdated, outdated_reason."
+    )
+    urgency: str = dspy.OutputField(desc="Urgency level, e.g., High, Medium, Low.")
+    summary: str = dspy.OutputField(desc="Short summary of the document.")
+    is_medical_document: bool = dspy.OutputField(
+        desc="True if the document is a medical document, False otherwise."
+    )
+    reason: str = dspy.OutputField(
+        desc="Reason why the document is not a medical document, if applicable."
+    )

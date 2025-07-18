@@ -3,6 +3,7 @@ from typing import List, Dict, Any
 from processing_engine.common.web_tools import web_verify_medicine
 from .signatures import DocumentProcessorSignature
 from .signatures import AyurlekhaSummarySignature
+from .signatures import DocumentMetadataSignature
 from datetime import datetime, timezone
 
 
@@ -83,6 +84,19 @@ class DocumentProcessor(dspy.Module):
             medicine_verifications=medicine_verifications,
             extracted_medicines=prediction.extracted_medicines,
         )
+
+
+class DocumentMetadataModule(dspy.Module):
+    """
+    Module to extract/generate per-document metadata using LLM and entity extraction.
+    """
+
+    def __init__(self):
+        super().__init__()
+        self.predictor = dspy.ChainOfThought(DocumentMetadataSignature)
+
+    def forward(self, detailed_analysis: str) -> dspy.Prediction:
+        return self.predictor(detailed_analysis=detailed_analysis)
 
 
 class PatientDemographics(dspy.Module):
